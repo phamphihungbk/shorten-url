@@ -1,0 +1,22 @@
+version: '3'
+
+networks:
+  short-url:
+    driver: bridge
+
+services:
+  postgres:
+    image: short-cassandra
+    build:
+      context: ./cassandra
+    ports:
+      - 9042:9042
+    volumes:
+      - ./cassandra/data:/var/lib/cassandra
+    restart: always
+    container_name: short-cassandra
+#    environment:
+#      POSTGRES_USER: "${POSTGRES_USER}"
+#      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    networks:
+      - short-url
