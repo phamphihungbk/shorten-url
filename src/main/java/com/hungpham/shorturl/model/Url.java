@@ -12,6 +12,7 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class Url {
 
 	@PrimaryKeyColumn(name = "id", ordinal = 0, type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
 	@Id
-	private Integer id;
+	private String id;
 
 	@CassandraType(type = CassandraType.Name.TIMESTAMP)
 	private Instant createdDate;

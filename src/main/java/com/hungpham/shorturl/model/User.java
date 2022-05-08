@@ -1,5 +1,6 @@
 package com.hungpham.shorturl.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
@@ -13,6 +14,7 @@ import java.util.UUID;
 public class User{
 
 	@PrimaryKeyColumn(name = "id", ordinal = 0, type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
+	@Id
 	private UUID id;
 
 	@CassandraType(type = CassandraType.Name.TIMESTAMP)
