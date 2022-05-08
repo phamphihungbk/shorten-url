@@ -6,3 +6,6 @@ build:
 
 down:
 	docker-compose -f ./environment/dev.yml down --remove-orphans
+
+start:
+	java -jar shorturl.jar
