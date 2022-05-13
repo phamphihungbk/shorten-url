@@ -1,4 +1,4 @@
-import request from '../util/request';
+import request from '@/util/request';
 
 const getURLs = (params) =>
   request({
@@ -27,4 +27,4 @@ const createURL = (data) =>
     data,
   });
 
-export default { getURLs, updateURL, deleteURL, createURL };
+export { getURLs, updateURL, deleteURL, createURL };
