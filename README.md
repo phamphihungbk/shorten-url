@@ -34,6 +34,11 @@ Get all request
 curl --location --request GET 'http://localhost:8080/api/v1/url/'
 ```
 
+Set up pre commit
+```
+cp scripts/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit && echo 'hook copied'
+```
+
 ### Demo
 Web app will redirect to original URL with shorten URL
 ![Demo](./images/demo-1.png)

@@ -4,8 +4,9 @@
 </script>
 
 <template>
-  	<img alt="Vue logo" src="./assets/logo.png" />
-	<router-view></router-view>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>
