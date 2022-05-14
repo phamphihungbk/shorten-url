@@ -4,10 +4,20 @@
       <el-header></el-header>
       <el-main>
         <el-row :gutter="20">
+          <el-col :span="4" :offset="10">
+            <el-image src="./logo.png" lazy />
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
           <el-col :span="12" :offset="6">
-            <div v-if="data.length > 0">{{ data }}</div>
-            <el-input v-model="originURL" placeholder="Enter the original URL">
-              <template #prepend>Http://</template>
+            <div v-show="data.length !== 0">
+              Your shorten URL is
+              <b>http://localhost:8080/api/v1/url/{{ data.id }}</b>
+            </div>
+            <el-input
+              v-model="input.originalUrl"
+              placeholder="Enter the full original URL includes https"
+            >
             </el-input>
             <el-button
               type="primary"
@@ -25,19 +35,21 @@
 </template>
 
 <script>
-import { createURL } from '../api/url.js';
+import { createURL } from '@/api/url.js';
 
 export default {
   name: 'HomePage',
   data() {
     return {
-      data: '',
-      originURL: '',
+      input: {
+        originalUrl: '',
+      },
+      data: [],
     };
   },
   methods: {
     async createItem() {
-      this.data = await createURL(this.originURL);
+      this.data = await createURL(this.input);
     },
   },
 };
