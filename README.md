@@ -1,4 +1,4 @@
-## 🔥Small Clone TinnyURL project built by Java
+## URL shortening web service built by Java
 
 ### Features:
 
@@ -14,11 +14,17 @@ Run `make up` to start cassandra container
 
 Run sql statement below in cassandra container to create keyspace
 ```sql
-CREATE
-KEYSPACE shorturl WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1};
+CREATE KEYSPACE shorturl WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1};
 ```
 
 Run `make start` to start server
+
+Run `cd frontend && npm run serve` to start frontend, to access frontend by using link below
+```
+http://localhost:4000/
+```
+
+**Some CURL request to check server**
 
 Post request
 ```
@@ -38,10 +44,6 @@ Set up pre commit
 ```
 cp scripts/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit && echo 'hook copied'
 ```
-
-### Demo
-Web app will redirect to original URL with shorten URL
-![Demo](./images/demo-1.png)
 
 ### Flow
 ![Flow](./images/diagram.jpg)
