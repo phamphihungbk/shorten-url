@@ -4,9 +4,18 @@
 </script>
 
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <el-container>
+    <el-header>
+      <p>
+        <!-- <el-page-header title="Vue URL Shortener" /> -->
+        Vue URL Shortener
+      </p>
+    </el-header>
+    <div id="app">
+        <router-view></router-view>
+      </div>
+    <el-footer></el-footer>
+  </el-container>
 </template>
 
 <style>
@@ -17,5 +26,9 @@
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  height: 100vh;
+}
+p {
+  text-align: center;
 }
 </style>
